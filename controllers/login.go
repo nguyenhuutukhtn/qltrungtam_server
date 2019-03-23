@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"../database"
+	"../model"
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -10,15 +11,10 @@ import (
 	"log"
 )
 
-type UserLoginRequest struct {
-	Username string `json:"username,omitempty"`
-	Password string `json:"password,omitempty"`
-}
-
 func HandleLogin(c *gin.Context) {
 	//get user request and parse to model
 	jsonStringRequest, _ := ioutil.ReadAll(c.Request.Body)
-	userRequest := UserLoginRequest{}
+	userRequest := model.UserLoginRequest{}
 	json.Unmarshal([]byte(jsonStringRequest), &userRequest)
 
 	//get hash password from database
