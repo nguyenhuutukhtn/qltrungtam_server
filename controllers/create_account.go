@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"../database"
+	"../model"
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -10,18 +11,11 @@ import (
 	"log"
 )
 
-type UserCreateAccountRequest struct {
-	Username string `json:"username,omitempty"`
-	Password string `json:"password,omitempty"`
-	Name     string `json:"name"`
-	Role     string `json:""role,omitempty`
-}
-
 func HandleCreateAccount(c *gin.Context) {
 
 	//Get user request, parse to model
 	jsonStringRequest, _ := ioutil.ReadAll(c.Request.Body)
-	userRequest := UserCreateAccountRequest{}
+	userRequest := model.UserCreateAccountRequest{}
 	json.Unmarshal([]byte(jsonStringRequest), &userRequest)
 	fmt.Println(jsonStringRequest)
 
