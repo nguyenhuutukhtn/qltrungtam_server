@@ -1,11 +1,11 @@
 package controllers
 
 import (
-	"../database"
-	"../model"
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/nguyenhuutukhtn/anhngudongdo_server/database"
+	"github.com/nguyenhuutukhtn/anhngudongdo_server/model"
 	"golang.org/x/crypto/bcrypt"
 	"io/ioutil"
 	"log"
