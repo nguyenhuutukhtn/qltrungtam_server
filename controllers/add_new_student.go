@@ -22,12 +22,12 @@ func AddNewStudent(c *gin.Context) {
 	//save to database
 
 	db := database.DBConn()
-	stmtIns, insert_err := db.Query("INSERT INTO HOCVIEN(id,HoTen,NgaySinh,Lop,GioiTinh,SDT,Email,Truong,HoTenPhuHuynh,SDTPhuHuynh) VALUES (0,'" + userRequest.HoTen + "','" + userRequest.NgaySinh + "','" + strconv.Itoa(userRequest.Lop) + "','" + userRequest.GioiTinh + "','" + userRequest.SDT + "','" + userRequest.Email + "','" + userRequest.Truong + "','" + userRequest.HoTenPhuHuynh + "','" + userRequest.SDTPhuHuynh + "');")
-	if insert_err != nil {
+	stmtIns, insertErr := db.Query("INSERT INTO STUDENT(Id,Name,Birthday,Grade,Gender,PhoneNum,Email,School,ParentName,ParentPhoneNum) VALUES (0,'" + userRequest.Name + "','" + userRequest.Birthday + "','" + strconv.Itoa(userRequest.Grade) + "','" + userRequest.Gender + "','" + userRequest.PhoneNum + "','" + userRequest.Email + "','" + userRequest.School + "','" + userRequest.ParentName + "','" + userRequest.ParentPhoneNum + "');")
+	if insertErr != nil {
 		//log.SetOutput(gin.DefaultWriter) // You may need this
 		//log.Println("test")
 		//fmt.Println("avcss")
-		log.Fatal(insert_err)
+		log.Fatal(insertErr)
 		c.JSON(500, gin.H{
 			"messages": "not success",
 		})

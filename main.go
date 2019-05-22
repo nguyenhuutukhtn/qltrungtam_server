@@ -22,5 +22,5 @@ func setupRouter() *gin.Engine {
 
 func main() {
 	r := setupRouter()
-	r.Run(":8001") // Ứng dụng chạy tại cổng 8081
+	r.Run(":8001") // Ứng dụng chạy tại cổng 8001
 }

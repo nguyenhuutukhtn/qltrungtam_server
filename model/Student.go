@@ -1,14 +1,14 @@
 package model
 
 type Student struct {
-	Id            int    `json:"id,omitempty"`
-	HoTen         string `json:"HoTen,omitempty"`
-	NgaySinh      string `json:"NgaySinh"`
-	Lop           int    `json:"Lop"`
-	GioiTinh      string `json:"GioiTinh"`
-	SDT           string `json:"SDT"`
-	Email         string `json:"Email"`
-	Truong        string `json:"Truong"`
-	SDTPhuHuynh   string `json:"SDTPhuHunh"`
-	HoTenPhuHuynh string `json:"HoTenPhuHuynh"`
+	Id             int    `json:"Id,omitempty"`
+	Name           string `json:"Name,omitempty"`
+	Birthday       string `json:"Birthday"`
+	Grade          int    `json:"Grade"`
+	Gender         string `json:"Gender"`
+	PhoneNum       string `json:"PhoneNum"`
+	Email          string `json:"Email"`
+	School         string `json:"School"`
+	ParentName     string `json:"ParentName"`
+	ParentPhoneNum string `json:"ParentPhoneNum"`
 }

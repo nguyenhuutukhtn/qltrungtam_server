@@ -10,11 +10,9 @@ import (
 func GetAllStudent(c *gin.Context) {
 
 	db := database.DBConn()
-	rows, err := db.Query("SELECT * FROM HOCVIEN")
+	rows, err := db.Query("SELECT * FROM STUDENT")
 	if err != nil {
-		//log.SetOutput(gin.DefaultWriter) // You may need this
-		//log.Println("test")
-		//fmt.Println("avcss")
+
 		log.Fatal(err)
 		c.JSON(500, gin.H{
 			"messages": "not success",
@@ -24,7 +22,7 @@ func GetAllStudent(c *gin.Context) {
 	listAllStudent := []model.Student{}
 	for rows.Next() {
 		var s model.Student
-		err = rows.Scan(&s.Id, &s.HoTen, &s.NgaySinh, &s.Lop, &s.GioiTinh, &s.SDT, &s.Email, &s.Truong, &s.HoTenPhuHuynh, &s.SDTPhuHuynh)
+		err = rows.Scan(&s.Id, &s.Name, &s.Birthday, &s.Grade, &s.Gender, &s.PhoneNum, &s.Email, &s.School, &s.ParentName, &s.ParentPhoneNum)
 		if err != nil {
 			log.Fatal(err)
 		}
