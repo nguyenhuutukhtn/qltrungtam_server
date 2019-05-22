@@ -15,6 +15,8 @@ func setupRouter() *gin.Engine {
 		client.POST("/create_account", controllers.HandleCreateAccount)
 		client.POST("/add_new_student", controllers.AddNewStudent)
 		client.GET("/get_all_student", controllers.GetAllStudent)
+		client.PUT("/update_student", controllers.UpdateStudent)
+		client.GET("/get_all_courses", controllers.GetAllCourses)
 	}
 
 	return r
