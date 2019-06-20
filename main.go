@@ -17,6 +17,9 @@ func setupRouter() *gin.Engine {
 		client.GET("/get_all_student", controllers.GetAllStudent)
 		client.PUT("/update_student", controllers.UpdateStudent)
 		client.GET("/get_all_courses", controllers.GetAllCourses)
+		client.GET("/get_all_teachers", controllers.GetAllTeachers)
+		client.POST("/add_new_course", controllers.AddNewCourse)
+		client.GET("/get_opening_courses", controllers.GetOpeningCourses)
 	}
 
 	return r
